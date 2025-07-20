@@ -46,8 +46,8 @@ def login_view(request):
         try:
             #Check user
             user = UserDetails.objects.get(email=email, password=password)
-            messages.success(request, f"Welcome, {user.username}! You have successfully logged in.")
-            return redirect('success_page')
+            
+            return HttpResponse(f"Welcome, {user.username}!")
         except UserDetails.DoesNotExist:
             messages.error(request, "Invalid email or password.")
             return render(request, 'login.html')
