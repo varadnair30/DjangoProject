@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update User</title>
+</head>
+<body>
+    <h1>Update User Details for {{ user.Username }}</h1>
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        
+        <label for="Username">Username:</label><br>
+        <input type="text" id="Username" name="Username" value="{{ user.Username }}" required><br><br>
+        
+        <label for="Email">Email:</label><br>
+        <input type="email" id="Email" name="Email" value="{{ user.Email }}" required><br><br>
+        
+        <label for="Password">New Password:</label><br>
+        <input type="password" id="Password" name="Password"><br><br>
+        
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
